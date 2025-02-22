@@ -1,0 +1,16 @@
+apiVersion: v1
+kind : Service
+
+metadata:
+  name: spring-service
+
+spec:
+  type: NodePort #쿠버네티스 외부에서 내부에 요청 보내기 위해 설정
+  selector: # deployment에 적었던 카테고리(labels)적용
+    app: backend-app
+  ports:
+    - protocol: TCP
+      port : 8080 # 쿠버네티스 내부에서 Service에 접속하기 위한 포트
+      targetPort: 8080 # 매핑하기 위한 파드의 포트 번호(deployment의 포트)
+      nodePort: 30000 # 외부에서 사용자들이 접근하게 될 포트
+
