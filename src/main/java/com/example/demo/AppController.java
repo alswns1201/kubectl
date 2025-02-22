@@ -9,7 +9,7 @@ public class AppController {
 
     @GetMapping("/")
     public String RunTest(){
-        return "Running";
+        return "Running Version 1.1 test";
     }
 
 }
